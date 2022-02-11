@@ -25,11 +25,11 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
             return;  
         }
 
-        saveSassion(email,checkSession)
+        saveSassion(email,checkSession);
 
         window.location.href = "home.html"; 
     }
-})
+});
 
 // CRIAR CONTA
 document.getElementById("create-form").addEventListener("submit", function(e) {
@@ -59,9 +59,6 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     alert("Conta criada com sucesso.")
 });
 
-function saveAccount(data) {
-    localStorage.setItem(data.login, JSON.stringify(data));
-
 function checkLogged() {
     if(session) {
         sessionStorage.setItem("logged", session);
@@ -75,21 +72,23 @@ function checkLogged() {
     }
 }
 
+function saveAccount(data) {
+    localStorage.setItem(data.login, JSON.stringify(data));
+
 function saveSassion(data,saveSassion) {
     if(saveSassion) {
-        localStorage.setItem("session", data);
+         localStorage.setItem("session", data);
     }
-
-    sessionStorage.setItem("logged", data);
-}
     
+        sessionStorage.setItem("logged", data);
+    }
 
 function getAccount(key) {
-    const account = localStorage.getItem(key);
-
-    if(account) {
-        return JSON.parse(account);
+     const account = localStorage.getItem(key);
+    
+     if(account) {
+         return JSON.parse(account);
     }
-
-    return "";
+    
+        return "";
 }
