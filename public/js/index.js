@@ -59,6 +59,9 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     alert("Conta criada com sucesso.")
 });
 
+function saveAccount(data) {
+    localStorage.setItem(data.login, JSON.stringify(data));
+
 function checkLogged() {
     if(session) {
         sessionStorage.setItem("logged", session);
@@ -70,10 +73,6 @@ function checkLogged() {
 
         window.location.href = "home.html";
     }
-}
-
-function saveAccount(data) {
-    localStorage.setItem(data.login, JSON.stringify(data));
 }
 
 function saveSassion(data,saveSassion) {
