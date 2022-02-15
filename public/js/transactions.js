@@ -15,7 +15,7 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     const value = parseFloat(document.getElementById("value-input").value);
     const description = document.getElementById("description-input").value;
     const date = document.getElementById("date-input").value;
-    const tybe = document.getElementById('input [name="tybe-input"]:checked').value;
+    const tybe = document.querySelector('input[name="tybe-input"]:checked').value;
 
     data.transactions.unshift({
         value: value, tybe: tybe, description : description, date: date 
