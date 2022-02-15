@@ -1,29 +1,26 @@
+const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 
 let data = {
     transactions: []
-}
-
-checkLogged();
+};
 
 document.getElementById("button-logout").addEventListener("click", logout);
-document.getElementById(transactions-button).addEventListener("click", function() {
-    window.location.href = "transactions.html"
-})
+
 
 //ADICIONAR LANÇAMENTO
 document.getElementById("transaction-form").addEventListener("submit", function(e) {
-    e.preventDefault;
+    e.preventDefault();
 
     const value = parseFloat(document.getElementById("value-input").value);
     const description = document.getElementById("description-input").value;
     const date = document.getElementById("date-input").value;
-    const tybe = document.getElementById('input [name="tybe-input"]:checked').value;
+    const tybe = document.querySelector('input[name="tybe-input"]:checked').value;
 
     data.transactions.unshift({
         value: value, tybe: tybe, description : description, date: date 
-    })
+    });
 
     saveData(data);
     e.target.resert();
@@ -34,7 +31,7 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     getTotal();
     
     alert("Lançamento adicionado com sucesso.");
-})
+});
 
 checkLogged();
 
@@ -53,6 +50,8 @@ function checkLogged() {
     if(dataUser) {
         data = JSON.parse(dataUser);
     }
+
+    getCashIn();
 
     getCashIn();
     getCashOut();
