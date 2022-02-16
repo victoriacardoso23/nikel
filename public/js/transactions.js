@@ -9,10 +9,10 @@ let data = {
 document.getElementById("button-logout").addEventListener("click", logout);
 
 //ADICIONAR LANÇAMENTO
-document.getElementById("transaction-form").addEventListener("submit", function(e) {
+document.getElementById("#transaction-form").addEventListener("submit", function(e) {
     e.preventDefault;
 
-    const value = parseFloat(document.getElementById("value-input").value);
+    const value = parseFloat(document.getElementById("valor-input").value);
     const description = document.getElementById("description-input").value;
     const date = document.getElementById("date-input").value;
     const tybe = document.querySelector('input[name="tybe-input"]:checked').value;
@@ -25,7 +25,6 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     e.target.resert();
     myModal.hide();
 
-    
     alert("Lançamento adicionado com sucesso.");
 })
 
@@ -73,19 +72,28 @@ function getTransactions() {
             }
 
             transactionsHtml += `
-            
-            
-            
-            
-            
-            
-            
+            <div class="row mb-4">
+               <div class="col-12">
+                   <h3 class="fs-2"> R$ ${cashIn[index].value.toFixed(2)}</h3>
+                   <div class="container p-0">
+                       <div class="row">
+                           <div class="col-12 col-md-8">
+                               <p>${cashIn[index].description}</p>
+                       </div>
+                       <div class="col-12 col-md-3 d-flex justify-content-end">
+                           ${cashIn[index].date}
+                       </div>
+                   </div>
+               </div>
+           </div>
             `
         
         })
 
         document.getElementById(transactions-list).innerHTML = getTransactionsHtml;
     }
+
+}
 
 function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
