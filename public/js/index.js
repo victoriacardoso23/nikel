@@ -35,8 +35,8 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
 document.getElementById("create-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const email = document.getElementById("email-crate-input").value;
-    const password = document.getElementById("password-create-input").value;
+    const email = document.getElementById("email-creat-input").value;
+    const password = document.getElementById("password-creat-input").value;
 
     if(email.length < 5) {
         alert("Preencha o campo com um e-mail válido.");
@@ -75,6 +75,7 @@ function checkLogged() {
 function saveAccount(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
 
+}
 function saveSassion(data,saveSassion) {
     if(saveSassion) {
          localStorage.setItem("session", data);
