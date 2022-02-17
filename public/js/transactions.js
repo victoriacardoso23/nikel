@@ -10,7 +10,7 @@ document.getElementById("button-logout").addEventListener("click", logout);
 
 //ADICIONAR LANÇAMENTO
 document.getElementById("#transaction-form").addEventListener("submit", function(e) {
-    e.preventDefault;
+    e.preventDefault();
 
     const value = parseFloat(document.getElementById("valor-input").value);
     const description = document.getElementById("description-input").value;
@@ -25,10 +25,11 @@ document.getElementById("#transaction-form").addEventListener("submit", function
     e.target.resert();
     myModal.hide();
 
-    alert("Lançamento adicionado com sucesso.");
-})
+    getTransactions();
 
-getTransactions();
+    alert("Lançamento adicionado com sucesso.");
+
+});
 
 checkLogged();
 
@@ -72,25 +73,16 @@ function getTransactions() {
             }
 
             transactionsHtml += `
-            <div class="row mb-4">
-               <div class="col-12">
-                   <h3 class="fs-2"> R$ ${cashIn[index].value.toFixed(2)}</h3>
-                   <div class="container p-0">
-                       <div class="row">
-                           <div class="col-12 col-md-8">
-                               <p>${cashIn[index].description}</p>
-                       </div>
-                       <div class="col-12 col-md-3 d-flex justify-content-end">
-                           ${cashIn[index].date}
-                       </div>
-                   </div>
-               </div>
-           </div>
+                <tr>
+                    <th scope="row">${item.date}</th>
+                    <td>${item.value.toFixed(2)}</td>
+                    <td>${tybe}</td>
+                    <td>${item.description}</td>
+                </tr>
             `
-        
         })
 
-        document.getElementById(transactions-list).innerHTML = getTransactionsHtml;
+        document.getElementById(transactions-list).innerHTML = TransactionsHtml;
     }
 
 }
